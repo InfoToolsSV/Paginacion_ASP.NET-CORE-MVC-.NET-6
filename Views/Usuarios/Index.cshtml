@@ -1,0 +1,86 @@
+﻿@using MVCCRUD.Data;
+@model Paginacion<Usuario>
+
+    @{
+    ViewData["Title"] = "Index";
+    }
+
+    <h1>Listado de Usuarios</h1>
+
+    <p>
+        <a asp-action="Create" class="btn btn-success">Create New</a>
+    </p>
+
+    <form asp-controller="Usuarios" asp-action="Index">
+        <p>
+            Buscar: <input type="text" name="buscar" value="@ViewData["FiltroActual"]" class="form-text" />
+            <input type="submit" value="Buscar" class="btn btn-sm btn-dark" />
+            <a asp-action="Index" class="btn btn-outline-info">Lista completa</a>
+        </p>
+    </form>
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    <a asp-action="Index" asp-route-ordenActual="@ViewData["FiltroNombre"]"
+                        asp-route-filtroActual="@ViewData["FiltroActual"]">
+                        Nombre
+                    </a>
+                </th>
+                <th>
+                    <a asp-action="Index" asp-route-ordenActual="@ViewData["FiltroFecha"]"
+                        asp-route-filtroActual="@ViewData["FiltroActual"]">
+                        Fecha
+                    </a>
+                </th>
+                <th>
+                    Clave
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fecha)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Clave)
+                </td>
+                <td>
+                    <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" class="btn btn-primary" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+
+    @{
+    var anteriordeshabilitado= !Model.PaginasAnteriores ? "disabled":"";
+    var siguientedeshabilitado= !Model.PaginasPosteriores ? "disabled":"";
+    }
+
+    <div>
+        <a asp-action="Index" asp-route-ordenActual="@ViewData["OrdenActual"]"
+            asp-route-numpag="@(Model.PaginaInicio - 1)" asp-route-filtroActual="@ViewData["FiltroActual"]"
+            class="btn btn-primary @anteriordeshabilitado">Anterior</a>
+            
+        @for (var i = 1; i<= Model.PaginasTotales; i++){ var paginaactiva=(i==Model.PaginaInicio) ? "active" : "" ; <a
+            asp-action="Index" asp-route-ordenActual="@ViewData["OrdenActual"]" asp-route-numpag="@i"
+            asp-route-filtroActual="@ViewData["FiltroActual"]" class="btn btn-primary @paginaactiva">
+            @i
+        </a> 
+    }
+
+            <a asp-action="Index" asp-route-ordenActual="@ViewData["OrdenActual"]"
+                asp-route-numpag="@(Model.PaginaInicio + 1)" asp-route-filtroActual="@ViewData["FiltroActual"]"
+                class="btn btn-primary @siguientedeshabilitado">Siguiente</a>
+    </div>

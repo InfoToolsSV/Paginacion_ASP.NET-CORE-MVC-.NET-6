@@ -1,0 +1,79 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/john/Escritorio/ORDEN-COLUMNA-ASP.NET-CORE-MVC-.NET-6-master/MVCCRUD/MVCCRUD.csproj": {}
+  },
+  "projects": {
+    "/home/john/Escritorio/ORDEN-COLUMNA-ASP.NET-CORE-MVC-.NET-6-master/MVCCRUD/MVCCRUD.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/john/Escritorio/ORDEN-COLUMNA-ASP.NET-CORE-MVC-.NET-6-master/MVCCRUD/MVCCRUD.csproj",
+        "projectName": "MVCCRUD",
+        "projectPath": "/home/john/Escritorio/ORDEN-COLUMNA-ASP.NET-CORE-MVC-.NET-6-master/MVCCRUD/MVCCRUD.csproj",
+        "packagesPath": "/home/john/.nuget/packages/",
+        "outputPath": "/home/john/Escritorio/ORDEN-COLUMNA-ASP.NET-CORE-MVC-.NET-6-master/MVCCRUD/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/john/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.6, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[6.0.6, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/6.0.113/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
